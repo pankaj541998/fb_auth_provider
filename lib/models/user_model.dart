@@ -6,7 +6,7 @@ class User extends Equatable {
   final String name;
   final String email;
   final String profileImage;
-  final String point;
+  final int point;
   final String rank;
   User({
     required this.id,
@@ -17,7 +17,7 @@ class User extends Equatable {
     required this.rank,
   });
 
-  factory User.UserDoc(DocumentSnapshot userDoc) {
+  factory User.fromDoc(DocumentSnapshot userDoc) {
     final userData = userDoc.data() as Map<String, dynamic>?;
     return User(
       id: userDoc.id,
@@ -26,6 +26,18 @@ class User extends Equatable {
       profileImage: userData["profileImage"],
       point: userData["poit"],
       rank: userData["rank"],
+    );
+  }
+
+  factory User.initail() {
+
+    return User(
+      id: '',
+      name: '',
+      email: '',
+      profileImage: '',
+      point: -1,
+      rank: '',
     );
   }
 
