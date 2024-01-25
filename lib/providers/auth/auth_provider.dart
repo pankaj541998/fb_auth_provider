@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart' as fbAuth;
+import 'package:firebase_auth/firebase_auth.dart' as fb_auth;
 
 import 'package:firebase_auth_provider/providers/auth/auth_state.dart';
 import 'package:firebase_auth_provider/repositories/auth_repositories.dart';
@@ -14,7 +14,7 @@ class AuthProvider with ChangeNotifier {
   AuthProvider({
     required this.authRepositories,
   });
-  void update (fbAuth.User? user){
+  void update (fb_auth.User? user){
     if(user != null){
       _state = _state.copyWith(authStatus: AuthStatus.authenticated,user:user);
     }else {

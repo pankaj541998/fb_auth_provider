@@ -3,7 +3,7 @@ import 'package:firebase_auth_provider/providers/profile/profile_state.dart';
 import 'package:firebase_auth_provider/utils/error_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:firebase_auth/firebase_auth.dart' as fbAuth;
+import 'package:firebase_auth/firebase_auth.dart' as fb_auth;
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -18,7 +18,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     profileProv = context.read<ProfileProvider>();
     profileProv.addListener(errorDialogListener);
@@ -26,7 +25,7 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   void getFrofile() {
-    final String uid = context.read<fbAuth.User?>()!.uid;
+    final String uid = context.read<fb_auth.User?>()!.uid;
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       context.read<ProfileProvider>().getProfile(uid: uid);
     });

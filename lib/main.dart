@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart' as fbAuth;
+import 'package:firebase_auth/firebase_auth.dart' as fb_auth;
 import 'package:firebase_auth_provider/pages/home_page.dart';
 import 'package:firebase_auth_provider/pages/signup_page.dart';
 import 'package:firebase_auth_provider/pages/splash_page.dart';
@@ -27,10 +27,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider<AuthRepositories>(create: (context) => AuthRepositories(firebaseFirestore: FirebaseFirestore.instance, firebaseAuth: fbAuth.FirebaseAuth.instance),),
+        Provider<AuthRepositories>(create: (context) => AuthRepositories(firebaseFirestore: FirebaseFirestore.instance, firebaseAuth: fb_auth.FirebaseAuth.instance),),
         Provider<ProfileRepositories>(create: (context) => ProfileRepositories(firebaseFirestore: FirebaseFirestore.instance),),
         StreamProvider(create: (context) => context.read<AuthRepositories>().user, initialData: null),
-        ChangeNotifierProxyProvider<fbAuth.User?, AuthProvider>(create: (context) => AuthProvider(authRepositories: context.read<AuthRepositories>()), update: (context, fbAuth.User? userStream, AuthProvider? authProvider) =>authProvider!..update(userStream) ,),
+        ChangeNotifierProxyProvider<fb_auth.User?, AuthProvider>(create: (context) => AuthProvider(authRepositories: context.read<AuthRepositories>()), update: (context, fb_auth.User? userStream, AuthProvider? authProvider) =>authProvider!..update(userStream) ,),
         ChangeNotifierProvider<SignInProvider>(create: (context) => SignInProvider(authRepositories: context.read<AuthRepositories>()),),
         ChangeNotifierProvider<SignUpProvider>(create: (context) => SignUpProvider(authRepositories: context.read<AuthRepositories>()),),
         ChangeNotifierProvider<ProfileProvider>(create: (context) => ProfileProvider(profileRepository: context.read<ProfileRepositories>()),),

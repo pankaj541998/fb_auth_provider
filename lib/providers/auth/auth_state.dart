@@ -1,11 +1,11 @@
 import 'package:equatable/equatable.dart';
-import 'package:firebase_auth/firebase_auth.dart' as fbAuth;
+import 'package:firebase_auth/firebase_auth.dart' as fb_auth;
 
 enum AuthStatus { unkonwn, authenticated, unAuthenticated }
 
 class AuthState extends Equatable {
   final AuthStatus authStatus;
-  final fbAuth.User? user;
+  final fb_auth.User? user;
   const AuthState({
     required this.authStatus,
     this.user,
@@ -23,7 +23,7 @@ class AuthState extends Equatable {
 
   AuthState copyWith({
     AuthStatus? authStatus,
-    fbAuth.User? user,
+    fbAfb_authuth.User? user,
   }) {
     return AuthState(
       authStatus: authStatus ?? this.authStatus,
