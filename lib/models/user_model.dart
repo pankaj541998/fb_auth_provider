@@ -29,8 +29,7 @@ class User extends Equatable {
     );
   }
 
-  factory User.initail() {
-
+  factory User.initailUser() {
     return User(
       id: '',
       name: '',
