@@ -24,7 +24,7 @@ class User extends Equatable {
       name: userData!["name"],
       email: userData["email"],
       profileImage: userData["profileImage"],
-      point: userData["poit"],
+      point: userData["point"],
       rank: userData["rank"],
     );
   }
