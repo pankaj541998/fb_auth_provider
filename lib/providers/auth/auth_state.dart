@@ -23,7 +23,7 @@ class AuthState extends Equatable {
 
   AuthState copyWith({
     AuthStatus? authStatus,
-    fbAfb_authuth.User? user,
+    fb_auth.User? user,
   }) {
     return AuthState(
       authStatus: authStatus ?? this.authStatus,
