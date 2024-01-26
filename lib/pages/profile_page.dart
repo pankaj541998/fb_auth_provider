@@ -26,7 +26,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   void getFrofile() {
     final String uid = context.read<fb_auth.User?>()!.uid;
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<ProfileProvider>().getProfile(uid: uid);
     });
   }

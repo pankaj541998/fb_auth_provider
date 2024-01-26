@@ -12,7 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 import 'pages/signin_page.dart';
-import 'providers/providers.dart';
 import 'providers/signup/signup_provider.dart';
 import 'repositories/profile_repositories.dart';
 
