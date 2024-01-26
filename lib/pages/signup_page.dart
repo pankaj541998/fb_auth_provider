@@ -144,6 +144,64 @@ class _SignUpPageState extends State<SignUpPage> {
                         return null;
                       },
                       ),
+
+                      TextFormField(
+                  style: const TextStyle(
+                    color: Color(0xffffffff),
+                    fontFamily: 'Poppins',
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                  ),
+                  // controller: emailController,
+                  keyboardType: TextInputType.text,
+                  decoration: InputDecoration(
+                    hintText: 'Email',
+                    hintStyle: const TextStyle(
+                      fontSize: 16,
+                      color: Color(0xffB7B7B7),
+                    ),
+                    suffixIcon: IconButton(
+                      icon: const Icon(
+                        Icons.perm_identity_rounded,
+                        color: Color(0xffB7B7B7),
+                        size: 30,
+                      ),
+                      onPressed: () {
+                        // setState(
+                        //   () {
+                        //     _passwordVisible = !_passwordVisible;
+                        //   },
+                        // );
+                      },
+                    ),
+                    enabledBorder: const UnderlineInputBorder(
+                      borderSide:
+                          BorderSide(width: 1, color: Color(0xffB7B7B7)),
+                    ),
+                    border: const UnderlineInputBorder(
+                      borderSide:
+                          BorderSide(width: 1, color: Color(0xffB7B7B7)),
+                    ),
+                    focusedBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 1, color: Colors.black),
+                    ),
+                    errorStyle: const TextStyle(
+                      fontSize: 14.0,
+                      // color: Color(0xffffffff),
+                    ),
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your email Id';
+                    }
+                    if (value.length < 4) {
+                      return 'Must be more than 4 characters';
+                    }
+                    return null;
+                  },
+                  onSaved: (name) {},
+                ),
                     const SizedBox(height: 20),
                     ElevatedButton(
                       onPressed:
